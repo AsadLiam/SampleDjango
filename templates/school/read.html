@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+  <div class="jumbotron">      
+		<h4>{{ instance.Name }}  <small>{{ instance.FatherName }}</small></h4>
+		<br>
+		<strong>Registration # </strong><p>{{ instance.RegistrationNumber }}</p>
+		<strong>DOB </strong><p>{{ instance.DateOfBirth }}</p>
+		<strong>Contact  </strong><p>{{ instance.Contact }}</p>
+		<strong>Address  </strong><p>{{ instance.Address }}</p>
+
+		<a href="{% url 'school:update' slug=instance.slug %}" class="btn btn-default" role="button">Edit</a>
+
+		<a href="{% url 'school:delete' slug=instance.slug %}" class="btn btn-default btn-primary" role="button">Delete</a>
+		
+
+	</div>
+{% endblock %}

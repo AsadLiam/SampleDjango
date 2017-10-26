@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} All Students {% endblock %}
+
+{% block content %}
+	<h3>
+		<a href="{% url 'school:create' %}">Add Student</a>
+	</h3>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Father Name</th>
+			<th>Contact</th>
+		</tr> 
+		{% for std in stds %}
+		<tr>
+			<td><a href="{% url 'school:detail' slug=std.slug %}">{{ std.Name }}</a></td>
+			<td>{{ std.FatherName }}</td>
+			<td>{{ std.Contact }}</td>
+		</tr>
+	    {% endfor %}
+    </table>
+
+{% endblock %}
